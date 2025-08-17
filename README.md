@@ -23,12 +23,12 @@ an experimental embedded database for [MECOMP](https://github.com/AnthonyMichael
     - [ ] must be able to score results so that query results can be ranked by score, like: `SELECT *, search::score(0) as relevance FROM documents WHERE text @0@ "lorem ipsum" ORDER BY relevance`
 - [ ] support computed fields
   - if I do go down the route of having a query language, this might be hard (might have to embed a simple scripting language). But if I go for the simpler option of having all queries be built up as structs, then a computed field can just be a rust closure that gets run to compute the field when needed.
-  - computed fields cannot be indexed (duh) and should not be used as part of the query unless I can somehow guarentee that the function is pure and idempotent.
+  - computed fields cannot be indexed (duh) and should not be used as part of the query unless I can somehow guarantee that the function is pure and idempotent.
   - might decide to place the burden on users to compute their own computed fields
 
 ## Concessions
 
-Making a database from-scratch is a very difficult endevour, I'm okay with using
+Making a database from-scratch is a very difficult endeavour, I'm okay with using
 existing libraries for the underlying storage engine, query planner, etc.
 As long as I can still keep the number of dependencies low (ideally > 200-300).
 
