@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Run cargo machete
+echo "Running cargo machete..."
+cargo machete --skip-target-dir
+if [ $? -ne 0 ]; then
+  echo "cargo machete failed, aborting commit"
+  exit 1
+fi
+
+# Run cargo test
+echo "Running cargo test..."
+if cargo nextest -V > /dev/null 2>&1; then
+  cargo nextest run --workspace
+else
+  cargo test --workspace
+fi
+if [ $? -ne 0 ]; then
+  echo "cargo test failed, aborting commit"
+  exit 1
+fi
+
+# If we made it here, everything passed and the push can proceed
+echo "All tests passed, proceeding with push"
+exit 0

@@ -2,5 +2,39 @@
 name = "rythmdb"
 version = "0.1.0"
 edition = "2024"
+authors = [
+    "Anthony Rubick <68485672+AnthonyMichaelTDM@users.noreply.github.com>",
+]
+description = "an experimental embedded database for MECOMP"
+repository = "https://github.com/AnthonyMichaelTDM/rythmdb"
+keywords = ["database", "mecomp"]
+categories = ["database"]
+readme = "README.md"
+license = "MIT"
+
+
+[profile.release]
+# debug = true      # for profiling
+lto = true
+strip = "none"
+codegen-units = 1
+opt-level = 3
+
+[profile.dev]
+lto = false
+strip = "none"
+opt-level = 0
+
+[profile.test]
+lto = false
+strip = "none"
+opt-level = 1
+
+[profile.bench]
+debug = true
+
+[profile.tarpaulin]
+inherits = "test"
+opt-level = 0
 
 [dependencies]

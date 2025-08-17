@@ -1,4 +1,4 @@
-# rythmdb
+# RythmDB
 
 an experimental embedded database for [MECOMP](https://github.com/AnthonyMichaelTDM/mecomp)
 
@@ -19,7 +19,7 @@ an experimental embedded database for [MECOMP](https://github.com/AnthonyMichael
     - should eventually support multiple kinds of indexes, but only supporting one is fine for version 1.0
     - should have space complexity < O(n^2)
   - [ ] full text search: map text chunks to the record id's that match them
-    - [ ] support an array of tokenizers and filters: https://surrealdb.com/docs/surrealdb/models/full-text-search
+    - [ ] support an array of tokenizers and filters: <https://surrealdb.com/docs/surrealdb/models/full-text-search>
     - [ ] must be able to score results so that query results can be ranked by score, like: `SELECT *, search::score(0) as relevance FROM documents WHERE text @0@ "lorem ipsum" ORDER BY relevance`
 - [ ] support computed fields
   - if I do go down the route of having a query language, this might be hard (might have to embed a simple scripting language). But if I go for the simpler option of having all queries be built up as structs, then a computed field can just be a rust closure that gets run to compute the field when needed.
@@ -47,3 +47,13 @@ Ideally, most if not all of the index types should be stored as tables of their 
 The (time) performance of this DB *must* match or exceed that of surrealdb for the use-cases of [mecomp](https://github.com/AnthonyMichaelTDM/mecomp).
 
 The DB ***must*** have fewer dependencies then surrealDB.
+
+## Development
+
+### Git Hooks
+
+RythmDB uses several git hooks to ensure code quality, these are stored in the `.githooks` directory, to install these hooks, run:
+
+```sh
+git config core.hooksPath .githooks
+```
