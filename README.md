@@ -1,4 +1,4 @@
-# RythmDB
+# RhythmDB
 
 an experimental embedded database for [MECOMP](https://github.com/AnthonyMichaelTDM/mecomp)
 
@@ -52,7 +52,7 @@ The DB ***must*** have fewer dependencies then surrealDB.
 
 ### Git Hooks
 
-RythmDB uses several git hooks to ensure code quality, these are stored in the `.githooks` directory, to install these hooks, run:
+RhythmDB uses several git hooks to ensure code quality, these are stored in the `.githooks` directory, to install these hooks, run:
 
 ```sh
 git config core.hooksPath .githooks

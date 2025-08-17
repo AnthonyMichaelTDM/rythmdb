@@ -1,12 +1,12 @@
 [package]
-name = "rythmdb"
+name = "rhythmdb"
 version = "0.1.0"
 edition = "2024"
 authors = [
     "Anthony Rubick <68485672+AnthonyMichaelTDM@users.noreply.github.com>",
 ]
 description = "an experimental embedded database for MECOMP"
-repository = "https://github.com/AnthonyMichaelTDM/rythmdb"
+repository = "https://github.com/AnthonyMichaelTDM/rhythmdb"
 keywords = ["database", "mecomp"]
 categories = ["database"]
 readme = "README.md"
